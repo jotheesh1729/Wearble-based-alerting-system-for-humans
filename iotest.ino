@@ -156,10 +156,11 @@ void loop() {
       Serial.println("fire alert activated for 5sec.");
       // Wait for the button to be pressed and released, or for 10 seconds to elapse
       button.update();
-      while (!button.fell() && (millis() - startTime) < 3000) {
+      while (!button.fell() && (millis() - startTime) < 5000) {
         // run drv for 10sec, just wait for the button or the timeout
-        drv.setWaveform(0, 22);
+        drv.setWaveform(0, 88); // short pulse
         drv.go();
+        delay(300);
         button.update();
       }
       // Check if the button was pressed, or if the timeout occurred
@@ -176,10 +177,11 @@ void loop() {
           Serial.println("fire second alert activated.");
           // Wait for the button to be pressed and released, or for 10 seconds to elapse
           button.update();
-          while (!button.fell() && (millis() - startTime) < 3000) {
+          while (!button.fell() && (millis() - startTime) < 5000) {
             // run drv1 for 10sec, just wait for the button or the timeout
-            drv1.setWaveform(0, 22);
-            drv1.go();
+            drv.setWaveform(0, 88); // short pulse
+            drv.go();
+            delay(300);
             button.update();
           }
           // Check if the button was pressed, or if the timeout occurred
@@ -232,8 +234,9 @@ void loop() {
       button.update();
       while (!button.fell() && (millis() - startTime) < 3000) {
         // run drv for 10sec, just wait for the button or the timeout
-        drv.setWaveform(0, 10);
+        drv.setWaveform(0, 14); // long pulse
         drv.go();
+        delay(1000);
         button.update();
       }
       // Check if the button was pressed, or if the timeout occurred
@@ -252,8 +255,9 @@ void loop() {
           button.update();
           while (!button.fell() && (millis() - startTime) < 3000) {
             // run drv1 for 10sec, just wait for the button or the timeout
-            drv1.setWaveform(0, 10);
-            drv1.go();
+            drv.setWaveform(0, 14); // long pulse
+            drv.go();
+            delay(1000);
             button.update();
           }
 
@@ -306,8 +310,12 @@ void loop() {
       button.update();
       while (!button.fell() && (millis() - startTime) < 3000) {
         // run drv for 10sec, just wait for the button or the timeout
-        drv.setWaveform(0, 10);
+        drv.setWaveform(0, 12); // ramp up
         drv.go();
+        delay(500);
+        drv.setWaveform(0, 13); // ramp down
+        drv.go();
+        delay(500);
         button.update();
       }
 
@@ -328,8 +336,12 @@ void loop() {
           button.update();
           while (!button.fell() && (millis() - startTime) < 3000) {
             // run drv1 for 10sec, just wait for the button or the timeout
-            drv1.setWaveform(0, 10);
-            drv1.go();
+            drv.setWaveform(0, 12); // ramp up
+            drv.go();
+            delay(500);
+            drv.setWaveform(0, 13); // ramp down
+            drv.go();
+            delay(500);
             button.update();
           }
 
