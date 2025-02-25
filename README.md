@@ -1,6 +1,6 @@
 # Weable-based-alerting-system-for-humans
 
-#abstract
+# Abstract
 This abstract introduces the wearable Wearable-Based Alerting System for emer-
 gency situations for both disabled and non-disabled individuals. The system sends
 advanced technology to detect various emergencies like fire alerts, flood alerts, out-
