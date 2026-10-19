@@ -19,7 +19,7 @@ who can't hear or see a normal alarm.
 ## System overview
 
 ```mermaid
-flowchart LR
+flowchart TD
     OP["Emergency service / operator"]
 
     subgraph CLOUD["Adafruit IO (cloud)"]
